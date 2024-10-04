@@ -1,20 +1,28 @@
-:root {
-    --cor-fundo: #064070;
-    --cor-principal: #0b0d20;
-    --cor-secundaria: #212333;
-    --cor-destaque: #e22b2b;
-    --cor-texto: #e42626;
-    --cor-fadeButton: #e29716; /* Corrigido "Buttom" para "Button" */
-}
-
-/* CONFIGURAÇÃO DO ESTILO DO CORPO DA PÁGINA */
+/* Definições de estilo adicionais */
 body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0; /* Cor de fundo para contraste */
+}
+
+.caixa-principal {
+    position: relative;
+    width: 300px; /* Largura do quadrado */
+    height: 300px; /* Altura do quadrado */
+    background-color: #000; /* Cor de fundo preto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Cor do texto */
+    text-align: center;
+    border-radius: 10px; /* Bordas arredondadas, opcional */
+}
+
+.titulo {
+    position: absolute;
+    z-index: 1; /* Para garantir que o texto fique acima do quadrado */
+    font-size: 24px;
 }
