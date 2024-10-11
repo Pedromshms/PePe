@@ -5,7 +5,7 @@ const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
-// Array de objetos contendo as perguntas e alternativas
+// Array de objeto contendo as perguntas e alternativas
 const perguntas = [
     {
         enunciado: "Qual a idade máxima que um cachorro pode chegar?",
@@ -61,14 +61,14 @@ function mostrarPergunta() {
 
     perguntaAtual.alternativas.forEach((alternativa, index) => {
         const botao = document.createElement("button");
-        botao.textContent = alternativa; // Adicionando texto ao botão
-        botao.addEventListener("click", () => verificarResposta(index));
+        botao.textContent = alternativa; // Define o texto do botão como a alternativa
+        botao.addEventListener("click", () => verificaResposta(index));
         caixaAlternativas.appendChild(botao);
     });
 }
 
 // FUNÇÃO VERIFICAR RESPOSTA
-function verificarResposta(selecionada) {
+function verificaResposta(selecionada) {
     if (selecionada === perguntaAtual.correta) {
         pontuacao++;
     }
@@ -81,13 +81,33 @@ function verificarResposta(selecionada) {
     }
 }
 
-// FUNÇÃO MOSTRAR RESULTADO
 function mostrarResultado() {
-    caixaPerguntas.style.display = "none";
-    caixaAlternativas.style.display = "none";
+    // Esconde a caixa de perguntas
+    caixaPrincipal.style.display = "none";
+    // Mostra a caixa de resultado
     caixaResultado.style.display = "block";
-    textoResultado.textContent = `Sua pontuação é ${pontuacao} de ${perguntas.length}.`;
+
+    setTimeout(() => caixaResultado.classList.add("mostrar"), 10);
+    textoResultado.textContent = `Você acertou ${pontuacao} de ${perguntas.length} perguntas!`;
+
+    // Criar botão de reiniciar
+    const botaoReiniciar = document.createElement("button");
+    botaoReiniciar.textContent = "Reiniciar";
+
+    // Adiciona um evento de click ao botão de reiniciar
+    botaoReiniciar.addEventListener("click", () => {
+        atual = 0;
+        pontuacao = 0;
+        caixaResultado.classList.remove("mostrar");
+        caixaResultado.style.display = "none";
+        caixaPrincipal.style.display = "block";
+        mostrarPergunta();
+    });
+
+    caixaResultado.innerHTML = "";
+    caixaResultado.appendChild(textoResultado);
+    caixaResultado.appendChild(botaoReiniciar);
 }
 
-// Inicializa o jogo chamando a função para mostrar a primeira pergunta
+// Inicia o quiz
 mostrarPergunta();
