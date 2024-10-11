@@ -1,28 +1,120 @@
-/* Definições de estilo adicionais */
+/* Definição de variáveis CSS para as cores usadas no design */
+:root {
+    /* cor do fundo */
+    --cor-fundo: #946b35;
+        /* cores da caixa principal */
+    --cor-principal: #000000;
+    /* cores da caixa secundaria */
+    --cor-secundaria: #0e0e0e;
+        /* cor texto quest/Buttom */
+    --cor-destaque: #ffd700;
+        /* cor do texto pergunta */
+    --cor-texto: #e9f6ff;
+        /* cor fadebuttom */
+    --cor-fadeButtom: #e30d6d;
+}
+
+/* Configuração do estilo do corpo da página */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0; /* Cor de fundo para contraste */
-}
-
-.caixa-principal {
     position: relative;
-    width: 300px; /* Largura do quadrado */
-    height: 300px; /* Altura do quadrado */
-    background-color: #000; /* Cor de fundo preto */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff; /* Cor do texto */
-    text-align: center;
-    border-radius: 10px; /* Bordas arredondadas, opcional */
+    overflow: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+        color: var(--cor-texto);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
 }
 
-.titulo {
+/* Adiciona uma camada de imagem de fundo com blur */
+body::before {
+    content: '';
     position: absolute;
-    z-index: 1; /* Para garantir que o texto fique acima do quadrado */
-    font-size: 24px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Caminho da imagem */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+/* Estilo da caixa principal */
+.caixa-principal {
+    background-color: var(--cor-principal);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Estilo para o cabeçalho principal */
+h1 {
+    color: var(--cor-destaque);
+}
+
+/* Estilo para os botões */
+button {
+    background-color: var(--cor-destaque);
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    color: var(--cor-principal);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: var(--cor-fadeButtom);
+    color: var(--cor-texto);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    button:focus {
+        outline: 2px dashed var(--cor-destaque);
+}
+
+/* Estilo para a caixa de resultado */
+.caixa-resultado {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--cor-secundaria);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 8px;
+}
+
+.caixa-resultado.mostrar {
+    opacity: 1;
+}
+
+/* Estilo para o texto do resultado */
+.texto-resultado {
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }

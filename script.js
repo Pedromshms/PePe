@@ -16,36 +16,36 @@ const perguntas = [
         correta: 0 // A primeira alternativa é a correta
     },
     {
-        enunciado: "Quantos dias há em um ano bissexto?",
+        enunciado: "Qual é a raça de cachorro mais conhecida por sua lealdade?",
         alternativas: [
-            "365",
-            "366"
+            "Labrador Retriever",
+            "Pastor Alemão"
         ],
-        correta: 1 // A segunda alternativa é a correta
+        correta: 0 // A segunda alternativa é a correta
     },
     {
-        enunciado: "Qual é o maior planeta do nosso sistema solar?",
+        enunciado: "Qual é a melhor maneira de treinar um cachorro?",
         alternativas: [
-            "Terra",
-            "Júpiter"
+            "maltratando",
+            "com reconpensas"
         ],
         correta: 1
     },
     {
-        enunciado: "Qual é a capital da França?",
+        enunciado: "Qual é a alimentação mais adequada para um cachorro?",
         alternativas: [
-            "Paris",
-            "Londres"
+            "Apenas ração",
+            "Ração e comida caseira balanceada"
         ],
-        correta: 0
+        correta: 1
     },
     {
-        enunciado: "Qual é a fórmula química da água?",
+        enunciado: "Qual é o maior cachorro do mundo?",
         alternativas: [
-            "H2O",
-            "CO2"
+            "Grande Pireneu",
+            "Dogue Alemão"
         ],
-        correta: 0
+        correta: 1
     }
 ];
 
